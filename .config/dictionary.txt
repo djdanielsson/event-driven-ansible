@@ -5,6 +5,8 @@ AUTHS
 Abhijeet
 Alina
 Buzachis
+Centrify
+Conjur
 EDAHTTP
 FQCN
 GSSAPI
@@ -15,11 +17,14 @@ OAUTHBEARER
 Oliveira
 PYTHONUNBUFFERED
 Passw
+Thycotic
 akasurde
 alertmanager
 alinabuzachis
 antsibull
 auths
+awxuser
+azcollection
 basepython
 benthomasosn
 bindep
@@ -32,7 +37,7 @@ confluentinc
 conftest
 conninfo
 containerd
-darglint
+cyberark
 dbname
 deadsnakes
 devel
@@ -42,6 +47,7 @@ docsite
 dynatrace
 envlist
 equalto
+eventstream
 extfile
 finito
 hdrs
@@ -58,6 +64,7 @@ krb5-user
 libkrb5-dev
 libpq
 libsystemd
+myapp
 mydb
 myqueue
 nada
@@ -89,4 +96,5 @@ toxinidir
 trustore
 truststore
 unshallow
+uuid
 whitt

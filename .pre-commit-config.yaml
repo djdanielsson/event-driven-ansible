@@ -9,6 +9,8 @@ ci:
   skip:
     # These will not run on pre-commit.ci
     - ansible-test-sanity # requires network access
+    - mypy # the pre-commit.ci env does not have py3.9 anymore
+    - pip-compile # the pre-commit.ci env does not have py3.9 anymore
     - shellcheck  # no docker
     - tox # requires network access
 exclude: >
@@ -17,7 +19,7 @@ exclude: >
   )$
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -27,24 +29,24 @@ repos:
         # always_run: true
         files: ^(\.config/dictionary\.txt)$
   - repo: https://github.com/koalaman/shellcheck-precommit
-    rev: v0.10.0
+    rev: v0.11.0
     hooks:
       - id: shellcheck
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v8.19.1
+    rev: v9.2.0
     hooks:
       - id: cspell
   - repo: https://github.com/pycqa/isort
-    rev: 6.0.1
+    rev: 6.1.0
     hooks:
       - id: isort
-  - repo: https://github.com/psf/black
-    rev: 25.1.0
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 25.9.0
     hooks:
       - id: black
         language_version: python3
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.15.0
+    rev: v1.18.2
     hooks:
       - id: mypy
         # empty args needed in order to match mypy cli behavior
@@ -70,7 +72,7 @@ repos:
           - xxhash
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: "v0.11.8"
+    rev: "v0.13.3"
     hooks:
       - id: ruff
         args: [
@@ -78,7 +80,7 @@ repos:
           --exit-non-zero-on-fix,
         ]
   - repo: https://github.com/PyCQA/flake8
-    rev: 7.2.0
+    rev: 7.3.0
     hooks:
       - id: flake8
         args: [
@@ -87,7 +89,7 @@ repos:
         ]
 
   - repo: https://github.com/pycqa/pylint
-    rev: v3.3.7
+    rev: v3.3.9
     hooks:
       - id: pylint
         args:
@@ -129,7 +131,7 @@ repos:
         stages: [manual]
         pass_filenames: false
   - repo: https://github.com/jazzband/pip-tools
-    rev: 7.4.1
+    rev: v7.5.1
     hooks:
       - id: pip-compile
         name: pip-combile -> constraints.txt
